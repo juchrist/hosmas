@@ -1,0 +1,68 @@
+<?php
+/**
+ * @var \Phalcon\Mvc\View\Engine\Php $this
+ */
+?>
+
+<div class="row">
+    <nav>
+        <ul class="pager">
+            <li class="previous"><?php echo $this->tag->linkTo(["administrator", "Go Back"]) ?></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="page-header">
+    <h1>
+        Create administrator
+    </h1>
+</div>
+
+<?php echo $this->getContent(); ?>
+
+<?php
+    echo $this->tag->form(
+        [
+            "administrator/create",
+            "autocomplete" => "off",
+            "class" => "form-horizontal"
+        ]
+    );
+?>
+
+<div class="form-group">
+    <label for="fieldUsername" class="col-sm-2 control-label">Username</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textArea(["username", "cols" => 30, "rows" => 4, "class" => "form-control", "id" => "fieldUsername"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldPassword" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["password", "size" => 30, "class" => "form-control", "id" => "fieldPassword"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldImage" class="col-sm-2 control-label">Image</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(["image", "size" => 30, "class" => "form-control", "id" => "fieldImage"]) ?>
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="fieldSessionId" class="col-sm-2 control-label">Session</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textArea(["session_id", "cols" => 30, "rows" => 4, "class" => "form-control", "id" => "fieldSessionId"]) ?>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+        <?php echo $this->tag->submitButton(["Save", "class" => "btn btn-default"]) ?>
+    </div>
+</div>
+
+<?php echo $this->tag->endForm(); ?>
